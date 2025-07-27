@@ -1,0 +1,45 @@
+<nav class="main-nav">
+  <div class="nav-brand">
+    <h1>Vaughn du Preez</h1>
+    <p class="nav-tagline">Computing Student & Developer</p>
+  </div>
+  
+  <div class="nav-links">
+    <a href="../index.html" class="nav-link home-link">Home</a>
+    <a href="../pages/about.html" class="nav-link about-link">About</a>
+    <a href="../pages/experience.html" class="nav-link experience-link">Experience</a>
+    <a href="../CV/Vaughn du Preez CV.pdf" download class="nav-link cv-link">Download CV</a>
+  </div>
+  
+  <div class="nav-controls">
+    <button id="toggleTheme" class="theme-btn">
+      <span class="theme-icon">🎨</span>
+      Appearance
+    </button>
+    <div id="themeSelector" class="hidden">
+      <div class="theme-circles">
+        <div class="theme-circle professional" data-theme="professional" title="Professional Theme"></div>
+        <div class="theme-circle pastel-custom" data-theme="pastel-custom" title="Pastel Theme"></div>
+        <div class="theme-circle dark-custom" data-theme="dark-custom" title="Dark Theme"></div>
+        <div class="theme-circle pixel" data-theme="pixel" title="Pixel Theme"></div>
+      </div>
+      <div class="professional-controls hidden">
+        <button id="darkModeToggle" class="dark-mode-btn">
+          <span class="dark-mode-icon">🌙</span>
+          Dark Mode
+        </button>
+      </div>
+      <div class="hue-controls">
+        <label class="checkbox-container">
+          <input type="checkbox" id="changeHueCheckbox">
+          <span class="checkmark"></span>
+          Change Hue
+        </label>
+        <div id="sliderContainer" class="hidden">
+          <label for="colorSlider">Adjust Primary Hue:</label>
+          <input type="range" id="colorSlider" min="0" max="360" value="200">
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
