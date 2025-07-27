@@ -511,4 +511,21 @@ function updateThemeColors(theme, hue) {
     document.body.style.minHeight = '100vh';
     document.body.style.color = '#ffffff';
   }
+  
+  // Force re-render of elements that use CSS variables
+  forceElementsRerender();
+}
+
+// Function to force re-render of elements that might lag in updating
+function forceElementsRerender() {
+  // Find all elements that use CSS variables and might need a re-render trigger
+  const elementsToUpdate = document.querySelectorAll('.overview-card, .quick-stats, .hero, .title-card, .content-card');
+  
+  elementsToUpdate.forEach(element => {
+    // Force a re-render by briefly changing a style property
+    const originalDisplay = element.style.display;
+    element.style.display = 'none';
+    element.offsetHeight; // Trigger reflow
+    element.style.display = originalDisplay || '';
+  });
 }
