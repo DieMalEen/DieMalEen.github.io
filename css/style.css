@@ -578,6 +578,20 @@ body {
   transform: translateY(-3px);
 }
 
+/* Professional theme blue CTA button */
+.theme-professional .cta-button:not(.cv-download),
+.theme-professional-dark .cta-button:not(.cv-download) {
+  background-color: #007acc;
+  border-color: #007acc;
+  color: white;
+}
+
+.theme-professional .cta-button:not(.cv-download):hover,
+.theme-professional-dark .cta-button:not(.cv-download):hover {
+  background-color: #005a99;
+  border-color: #005a99;
+}
+
 .overview {
   margin: 3rem 0;
 }
