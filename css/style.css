@@ -1084,7 +1084,7 @@ body {
   height: 100vh;
   pointer-events: none;
   z-index: -1;
-  opacity: 0.1;
+  opacity: 0.2;
 }
 
 .floating-shapes {

@@ -27,11 +27,11 @@ async function loadPartials() {
     if (isInPages) {
       if (homeLink) homeLink.href = '../index.html';
       if (testLink) testLink.href = 'test.html';
-      if (cvLink) cvLink.href = '../CV/Vaughn du Preez CV.pdf';
+      if (cvLink) cvLink.href = '../CV/Vaughn_du_Preez_CV.pdf';
     } else {
       if (homeLink) homeLink.href = 'index.html';
       if (testLink) testLink.href = 'pages/test.html';
-      if (cvLink) cvLink.href = 'CV/Vaughn du Preez CV.pdf';
+      if (cvLink) cvLink.href = 'CV/Vaughn_du_Preez_CV.pdf';
     }
     
     // Add active page highlighting
@@ -58,7 +58,7 @@ async function loadPartials() {
     });
     
     footerCvLinks.forEach(link => {
-      link.href = isInPages ? '../CV/Vaughn du Preez CV.pdf' : 'CV/Vaughn du Preez CV.pdf';
+      link.href = isInPages ? '../CV/Vaughn_du_Preez_CV.pdf' : 'CV/Vaughn_du_Preez_CV.pdf';
     });
     
     footerAboutLinks.forEach(link => {
@@ -347,7 +347,7 @@ function setupEventListeners(toggleBtn, themeSelector, circles, slider, sliderCo
       
       // Reset dark mode when switching themes
       if (theme !== 'professional') {
-        isDarkMode = false;
+        isDarkMode = true;
       }
       
       // Apply the correct theme class
@@ -428,6 +428,7 @@ function setupEventListeners(toggleBtn, themeSelector, circles, slider, sliderCo
         }
         
         updateThemeColors(actualTheme, 0);
+        updateAllThemeCircles();
         saveThemeSettings();
       }
     });
@@ -448,9 +449,14 @@ function updateAllThemeCircles() {
       circle.style.backgroundColor = '#000';
       circle.style.borderColor = `hsl(${hue}, 100%, 50%)`;
     } else if (theme === 'professional') {
-      // Professional theme circle stays white with dark border
-      circle.style.backgroundColor = '#fff';
-      circle.style.borderColor = '#333';
+      // Professional theme circle reflects current light/dark mode state
+      if (isDarkMode) {
+        circle.style.backgroundColor = '#333';
+        circle.style.borderColor = '#666';
+      } else {
+        circle.style.backgroundColor = '#fff';
+        circle.style.borderColor = '#333';
+      }
     }
   });
 }
@@ -461,10 +467,10 @@ function updateThemeColors(theme, hue) {
   
   if (theme === 'pastel-custom') {
     // Update pastel theme CSS variables
-    document.documentElement.style.setProperty('--card-bg', `hsl(${hue}, 80%, 95%)`);
+    document.documentElement.style.setProperty('--card-bg', `hsl(${hue}, 80%, 90%)`);
     document.documentElement.style.setProperty('--border-color', `hsl(${hue}, 60%, 70%)`);
     // Set background with desaturated theme color
-    const backgroundColor = `hsl(${hue}, 10%, 90%)`; // Very desaturated theme color
+    const backgroundColor = `hsl(${hue}, 100%, 95%)`; // Very desaturated theme color
     document.body.style.setProperty('background', backgroundColor, 'important');
     document.body.style.minHeight = '100vh';
 
@@ -490,7 +496,7 @@ function updateThemeColors(theme, hue) {
   } else if (theme === 'professional') {
     // Professional light theme
     document.documentElement.style.setProperty('--text-color', '#333333');
-    document.documentElement.style.setProperty('--border-color', '#e0e0e0');
+    document.documentElement.style.setProperty('--border-color', '#bbbabaff');
     document.documentElement.style.setProperty('--card-bg', '#ffffff');
     document.body.style.setProperty('background', '#ffffff', 'important');
     document.body.style.minHeight = '100vh';
